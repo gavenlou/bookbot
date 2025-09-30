@@ -1,15 +1,22 @@
 from stats import get_num_words
 from stats import get_character_count
+from stats import create_sorted_list
 
 def get_book_text(filepath):
+  print(f"Analyzing book found at {filepath}")
   with open(filepath) as book:
     file_contents = book.read()
     return file_contents
 
 def main():
+  print("============ BOOKBOT ============")
   book = get_book_text('books/frankenstein.txt')
   get_num_words(book)
   character_count = get_character_count(book)
-  print(character_count)
+  sorted_list = create_sorted_list(character_count)
+  for dict in sorted_list:
+    if dict["char"].isalpha():
+      print(f"{dict["char"]}: {dict["num"]}")
+  print("============= END ===============")
 
 main()
