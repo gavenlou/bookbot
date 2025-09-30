@@ -1,4 +1,5 @@
 def get_num_words(text):
+  print("----------- Word Count ----------")
   print(f"Found {len(text.split())} total words")
 
 def get_character_count(text):
